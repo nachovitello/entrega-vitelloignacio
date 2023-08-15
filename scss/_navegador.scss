@@ -87,3 +87,8 @@
     width: 150px;
     object-fit: cover;
 }
+@media(max-width:489px){
+    .titulo h1{
+        font-size: 42px;
+    }
+}
