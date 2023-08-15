@@ -1,0 +1,51 @@
+.titulo-producto{
+    font-size: 50px;
+    display: grid;
+    text-align: center;
+}
+.productos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.etiqueta-productos{
+    width: 250px;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+    border-color: blue;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    align-items: center;
+
+}
+.imagen-tarjeta{
+    width: 150px;
+}
+.boton{
+    background-color: blue;
+    border-radius: 5px;
+    color: aliceblue;
+    width: 200px;
+    font-size: 15px;
+
+}
+
+.enlace-productos{
+    background-color: #e01010;
+    font-size: 22px;
+    width: 280px;
+    border-radius: 10px;
+    padding: 10px;
+    display: grid;
+    place-items: center;
+    margin: 20px auto;
+    text-decoration: none;
+    &:hover{
+        background-color: rgb(243, 112, 89);
+        transition: 1s;
+    }
+}

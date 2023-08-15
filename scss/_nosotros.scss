@@ -1,0 +1,21 @@
+.titulo-nosotros{
+    font-size: 50px;
+    display: grid;
+    text-align: center;
+    text-decoration: underline;
+    color: $bg-color;
+    padding: 20px;
+    margin: 20px;
+}
+
+.tarjeta-nosotros{
+    margin: 15px;
+    padding: 15px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    .descripcion-nosotros{
+        font-size: 23px;
+    }
+
+}
+

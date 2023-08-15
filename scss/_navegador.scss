@@ -1,0 +1,89 @@
+.navegador{
+    padding: 15px;
+    background-color: $bg-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    ul{
+        list-style-type: none;
+        display: flex;
+        li a{
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 5px;
+            font-size: 20px;
+        }
+    }
+    .fa-bars{
+        display: none;
+    }
+    
+}
+.underline-hover::after{
+    content: "";
+    height: 4px;
+    width: 0;
+    margin: auto;
+    background-color: white;
+    display: block;
+    transition: all 350ms;
+    @media(max-width: 500px){
+        background-color:blue ;
+    }
+}
+.underline-hover:hover::after{
+    width: 100%;
+}
+@media(max-width:768px){
+    .navegador .fa-bars{
+        display: block;
+        margin: 10px;
+        font-size: 40px;
+        color: black;
+    }
+    .navegador .fa-bars:hover + ul{
+        left: 0;
+    }
+    .navegador ul{
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 250px;
+        height: 100vh;
+        background-color: #fff;
+        flex-direction: column;    
+        align-items: center;
+        transition: 0.5s;
+        padding-top: 45px;
+    }
+    .navegador ul:hover{
+        left: 0;
+    }
+    .navegador ul li a{
+        color: black;
+    }
+}
+.titulo{
+    background-image: url(../multimedia/img/fondo.jpg);
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    display: grid;
+    h1{
+        font-size: 60px;
+        text-align: center;
+        color: rgb(233, 233, 235);
+        text-decoration: underline;
+    }
+    h2{
+        font-size: 30px;
+        text-align: center;
+        color: white;
+    }
+
+}
+.imagen-pagina{
+    width: 150px;
+    object-fit: cover;
+}

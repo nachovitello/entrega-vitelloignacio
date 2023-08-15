@@ -1,0 +1,72 @@
+.maps{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+.pie-de-pagina{
+    padding: 15px;
+    background-color:rgb(231, 112, 112);
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    .form-consulta{
+        border: 2px solid blue;
+        padding: 20px;
+        border-radius: 4px;
+        width: 350px;
+        text-decoration: underline;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        align-items: center;
+        input{
+            margin: 4px;
+            padding: 3px;
+            width: 230px;
+            border: 1px solid blue;
+            border-radius: 5px;
+            align-items: center;
+        }
+    }
+    .info-nosotros{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .redes{
+        align-items: center;
+        text-align: center;
+    }
+
+}
+
+.titulo-redes{
+    font-size: 20px;
+}
+
+.logo-redes{
+    font-size: 40px;
+}
+.logo-redes i{
+    color: black;
+}
+
+@media(max-width:768px){
+    .pie-de-pagina{
+        grid-template-columns: 1fr 1fr;
+    }
+    .pie-de-pagina .redes{
+        grid-column: 1/3;
+    }
+}
+@media(max-width:576px){
+    .pie-de-pagina{
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+    .pie-de-pagina .redes{
+        grid-column: auto;
+    }
+}
