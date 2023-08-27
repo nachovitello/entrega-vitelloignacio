@@ -28,7 +28,7 @@
   color: white;
   display: block;
   padding: 5px;
-  font-size: 20px;
+  font-size: 30px;
 }
 .navegador .fa-bars {
   display: none;
@@ -102,8 +102,9 @@
 }
 
 .imagen-pagina {
-  width: 150px;
+  width: 250px;
   object-fit: cover;
+  padding: 0px 20px;
 }
 
 @media (max-width: 489px) {
@@ -195,9 +196,17 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+@media (max-width: 489px) {
+  .productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 
 .etiqueta-productos {
-  width: 250px;
+  width: 280px;
+  height: auto;
   border: 2px solid;
   border-radius: 5px;
   padding: 10px;
@@ -212,6 +221,10 @@
 
 .imagen-tarjeta {
   width: 150px;
+}
+.imagen-tarjeta:hover {
+  width: 200px;
+  transition: 2s;
 }
 
 .boton {
