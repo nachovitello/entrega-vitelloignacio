@@ -19,3 +19,17 @@
 
 }
 
+.contacto-nosotros{
+    font-size: 20px;
+    width: 300px;
+    padding: 15px;
+    display: grid;
+    place-items: center;
+    margin: 20px auto;
+    border: 3px solid red;
+    border-radius: 10px;
+    h2{
+        text-decoration: underline;
+    }
+}
+
