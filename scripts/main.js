@@ -4,15 +4,12 @@ const productoInput = document.getElementById('producto');
 const vehiculoInput = document.getElementById('vehiculo');
 const telefonoInput = document.getElementById('telefono');
 
+form.addEventListener('submit', async function (event) {
+  event.preventDefault(); // Prevents the form from being submitted
 
-form.addEventListener('submit', function (event) {
-  event.preventDefault(); // Evita que el formulario se envíe
-
-  // Verifica si alguno de los campos está vacío
   if (nombreInput.value === '' || productoInput.value === '' || vehiculoInput.value === '' || telefonoInput.value === '') {
     alert('Por favor, complete todos los campos antes de enviar el formulario.');
   } else {
-    // Crea un objeto JSON con los datos del formulario
     const consultaData = {
       nombre: nombreInput.value,
       producto: productoInput.value,
@@ -20,16 +17,14 @@ form.addEventListener('submit', function (event) {
       telefono: telefonoInput.value
     };
 
-    // Convierte el objeto JSON a una cadena
     const consultaDataString = JSON.stringify(consultaData);
 
-    // Almacena los datos en el almacenamiento local
-    localStorage.setItem('consultaData', consultaDataString);
+    // Using async/await here might not be necessary, but you can use it if needed for consistency
+    await saveDataToLocalStorage(consultaDataString);
 
-    // Muestra una alerta de que los datos se enviaron correctamente
     alert('Datos enviados correctamente');
 
-    // Limpia los campos del formulario
+    // Clear the form fields
     nombreInput.value = '';
     productoInput.value = '';
     vehiculoInput.value = '';
@@ -37,7 +32,15 @@ form.addEventListener('submit', function (event) {
   }
 });
 
-// Función para mostrar los datos en el DOM
+// Function to save data to localStorage (you can make it async if needed)
+function saveDataToLocalStorage(data) {
+  return new Promise((resolve) => {
+    localStorage.setItem('consultaData', data);
+    resolve();
+  });
+}
+
+// Function to display data in the DOM
 function displayConsultaData(data) {
   const outputElement = document.getElementById('output');
 
@@ -49,4 +52,11 @@ function displayConsultaData(data) {
   `;
 }
 
+document.addEventListener('DOMContentLoaded', async function () {
+  const storedDataString = localStorage.getItem('consultaData');
 
+  if (storedDataString) {
+    const storedData = JSON.parse(storedDataString);
+    displayConsultaData(storedData);
+  }
+});
