@@ -5,58 +5,65 @@ const vehiculoInput = document.getElementById('vehiculo');
 const telefonoInput = document.getElementById('telefono');
 
 form.addEventListener('submit', async function (event) {
-  event.preventDefault(); // Prevents the form from being submitted
+  event.preventDefault(); 
 
   if (nombreInput.value === '' || productoInput.value === '' || vehiculoInput.value === '' || telefonoInput.value === '') {
-    alert('Por favor, complete todos los campos antes de enviar el formulario.');
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Por favor, complete todos los campos antes de enviar el formulario.'
+    });
   } else {
-    const consultaData = {
-      nombre: nombreInput.value,
-      producto: productoInput.value,
-      vehiculo: vehiculoInput.value,
-      telefono: telefonoInput.value
-    };
+    try {
+      const consultaData = {
+        Nombre: nombreInput.value,
+        Producto: productoInput.value,
+        Vehiculo: vehiculoInput.value,
+        Telefono: telefonoInput.value
+      };
 
-    const consultaDataString = JSON.stringify(consultaData);
+      const queryParams = new URLSearchParams(consultaData).toString();
 
-    // Using async/await here might not be necessary, but you can use it if needed for consistency
-    await saveDataToLocalStorage(consultaDataString);
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts?${queryParams}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
 
-    alert('Datos enviados correctamente');
+      if (!response.ok) {
+        throw new Error('Hubo un problema al obtener los datos del servidor');
+      }
 
-    // Clear the form fields
-    nombreInput.value = '';
-    productoInput.value = '';
-    vehiculoInput.value = '';
-    telefonoInput.value = '';
-  }
-});
+      const responseData = await response.json();
+      console.log('Datos del formulario:', responseData);
 
-// Function to save data to localStorage (you can make it async if needed)
-function saveDataToLocalStorage(data) {
-  return new Promise((resolve) => {
-    localStorage.setItem('consultaData', data);
-    resolve();
-  });
-}
+      Swal.fire({
+        icon: 'success',
+        title: '¡Éxito!',
+        html: `
+          <p>Datos enviados correctamente:</p>
+          <ul>
+            <li><strong>Nombre:</strong> ${responseData.Nombre}</li>
+            <li><strong>Producto:</strong> ${responseData.Producto}</li>
+            <li><strong>Vehículo:</strong> ${responseData.Vehiculo}</li>
+            <li><strong>Teléfono:</strong> ${responseData.Telefono}</li>
+          </ul>
+        `
+      });
 
-// Function to display data in the DOM
-function displayConsultaData(data) {
-  const outputElement = document.getElementById('output');
-
-  outputElement.innerHTML = `
-    <p>Nombre y Apellido: ${data.nombre}</p>
-    <p>Producto: ${data.producto}</p>
-    <p>Vehiculo: ${data.vehiculo}</p>
-    <p>Telefono: ${data.telefono}</p>
-  `;
-}
-
-document.addEventListener('DOMContentLoaded', async function () {
-  const storedDataString = localStorage.getItem('consultaData');
-
-  if (storedDataString) {
-    const storedData = JSON.parse(storedDataString);
-    displayConsultaData(storedData);
+      
+      nombreInput.value = '';
+      productoInput.value = '';
+      vehiculoInput.value = '';
+      telefonoInput.value = '';
+    } catch (error) {
+      console.error('Hubo un error al obtener los datos del servidor:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Hubo un problema al obtener los datos del servidor.'
+      });
+    }
   }
 });
