@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&family=Roboto:wght@100;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+/* Globals */
+
+
+a {
+  text-decoration: none; }
+
+
+
+
+    
+
+  
+
+.contenedor .producto-radiador {
+  position: relative;
+  border: solid black 1px; }
+  .contenedor .producto-radiador .producto-img {
+    width: 300px; }
+  .contenedor .producto-radiador .nombre {
+    padding: 10px;
+    display: flex;
+    background-color: #d64848;
+    justify-content: center; }
+  .contenedor .producto-radiador .contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .contenedor .producto-radiador .contenido .contenido-texto {
+      padding: 15px 0;
+      width: 200px;
+      font-size: 1.5em; }
+    .contenedor .producto-radiador .contenido .contenido-boton {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: solid black 2px; }
+      .contenedor .producto-radiador .contenido .contenido-boton:hover {
+        background-color: black;
+        color: white;
+        transition: ease-in-out 0.3s; }
+
+.tabla-body .boton-eliminar-producto {
+  top: 89%;
+  left: 50%;
+  padding: 10px 10px;
+  font-size: 1em; }
+
