@@ -1,37 +1,25 @@
-const form = document.getElementById('consulta-form');
-  const nombreInput = document.getElementById('nombre');
-  const productoInput = document.getElementById('producto');
-  const vehiculoInput = document.getElementById('vehiculo');
-  const telefonoInput = document.getElementById('telefono');
+function enviarConsulta(event) {
+  // Evita que el formulario se envíe de forma tradicional
+  event.preventDefault();
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
+  // Captura los datos del formulario
+  const nombre = document.getElementById('nombre').value;
+  const producto = document.getElementById('producto').value;
+  const vehiculo = document.getElementById('vehiculo').value;
+  const añoymotor = document.getElementById('añoymotor').value;
 
-    if (nombreInput.value === '' || productoInput.value === '' || vehiculoInput.value === '' || telefonoInput.value === '') {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Por favor, complete todos los campos antes de enviar el formulario.'
-      });
-    } else {
-      Swal.fire({
-        icon: 'success',
-        title: '¡Éxito!',
-        html: `
-          <p>Datos enviados correctamente:</p>
-          <ul>
-            <li><strong>Nombre:</strong> ${nombreInput.value}</li>
-            <li><strong>Producto:</strong> ${productoInput.value}</li>
-            <li><strong>Vehículo:</strong> ${vehiculoInput.value}</li>
-            <li><strong>Teléfono:</strong> ${telefonoInput.value}</li>
-          </ul>
-        `
-      });
+  // Define el número de WhatsApp (incluye el código de país sin el '+')
+  const numeroWhatsApp = "5493514031305"; // Reemplaza con tu número
 
-      // Limpiar los campos del formulario
-      nombreInput.value = '';
-      productoInput.value = '';
-      vehiculoInput.value = '';
-      telefonoInput.value = '';
-    }
-  });
+  // Construye el mensaje
+  const mensaje = `Hola, mi nombre es ${nombre}. Quisiera consultar sobre el producto: ${producto}. Mi vehículo es ${vehiculo} y es ${añoymotor}.`;
+
+  // Codifica el mensaje para la URL
+  const mensajeCodificado = encodeURIComponent(mensaje);
+
+  // Construye la URL de WhatsApp
+  const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+
+  // Redirige al usuario a WhatsApp
+  window.open(urlWhatsApp, '_blank');
+}
