@@ -1,0 +1,11 @@
+{
+  "name": "entrega-vitelloignacio",
+  "version": "1.0.0",
+  "description": "Bienvenido a la Página de Repuestos. Este proyecto es una plataforma en línea dedicada a la venta y consulta de repuestos para vehículos. Los usuarios pueden buscar repuestos, obtener información sobre productos y enviar consultas a través de un formulario en el pie de la página.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
