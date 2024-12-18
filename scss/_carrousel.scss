@@ -1,6 +1,41 @@
 .carousel-item img{
-    width: 100%;
+    width: 15px;
     height: 350px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
+.slider-container {
+    width: 100%; /* Ajusta el ancho del slider al 80% del ancho de la página */
+    max-width: 100%; /* Tamaño máximo opcional */
+    height: 80px; /* Altura del slider */
+    overflow: hidden; /* Oculta cualquier contenido que desborde del contenedor */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin: 20px 0px;
+
+  }
+
+
+  .slider {
+    display: flex;
+    width: 120%; /* Calcula el ancho total del slider según el número de imágenes */
+    animation: scroll 15s linear infinite; /* Desplazamiento continuo */
+    align-items: center;
+  }
+
+  .slider img {
+    height: 70px;
+    padding: 5px;
+    object-fit: cover;
+    align-items: center;
+  }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); } /* Inicio: posición inicial */
+    50% { transform: translateX(-125%); } /* Se desplaza hacia la izquierda hasta la última imagen */
+    100% { transform: translateX(0); } /* Salta de regreso al principio */
+  }
+
+  .slider-container:hover .slider {
+    animation-play-state: paused; /* Pausa la animación al pasar el cursor */
+  }
