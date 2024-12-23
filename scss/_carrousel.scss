@@ -1,7 +1,5 @@
 .carousel-item img{
-    width: 15px;
-    height: 350px;
-    object-fit: cover;
+    height: 450px;
 }
 
 .slider-container {
@@ -14,7 +12,6 @@
     margin: 20px 0px;
 
   }
-
 
   .slider {
     display: flex;
@@ -38,4 +35,32 @@
 
   .slider-container:hover .slider {
     animation-play-state: paused; /* Pausa la animación al pasar el cursor */
+  }
+
+  @media screen and (max-width: 768px){
+    .carousel-item img{
+      height: 200px;
+    }
+    .slider {
+      display: flex;
+      width: 270%; /* Calcula el ancho total del slider según el número de imágenes */
+      animation: scroll 15s linear infinite; /* Desplazamiento continuo */
+      align-items: center;
+    }
+    .slider-container {
+      width: 100%; /* Ajusta el ancho del slider al 80% del ancho de la página */
+      max-width: 100%; /* Tamaño máximo opcional */
+      height: 40px; /* Altura del slider */
+      overflow: hidden; /* Oculta cualquier contenido que desborde del contenedor */
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      margin: 20px 0px;
+  
+    }
+    .slider img {
+      height: 40px;
+      padding: 5px;
+      object-fit: cover;
+      align-items: center;
+    }
   }

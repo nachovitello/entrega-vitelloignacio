@@ -12,7 +12,7 @@
         padding: 0px;
         li a{
             text-decoration: none;
-            color: rgb(231, 112, 112);
+            color: #ff3131;
             display: block;
             padding: 5px;
             font-size: 30px;
@@ -57,13 +57,14 @@
         position: fixed;
         top: 0;
         left: -300px;
-        width: 250px;
+        width: 160px;
         height: 100vh;
         background-color: #fff;
         flex-direction: column;    
         align-items: center;
         transition: 0.5s;
         padding-top: 45px;
+        z-index: 99;
     }
     .navegador ul:hover{
         left: 0;
@@ -100,8 +101,23 @@
     padding: 0px 0px;
     align-items: end;
 }
-@media(max-width:489px){
-    .titulo h1{
-        font-size: 42px;
+@media screen and (max-width: 768px) {
+    .titulo {
+        display: grid;
+        grid-template-columns: 4fr 1fr ; /* Imagen - Texto (ajustable) - Imagen */
+        align-items: center;
+        gap: 20px; /* Espacio entre columnas */
+    }
+
+    .titulo h2 {
+        font-size: 16px; /* Reduce el tamaño de la fuente */
+        margin: 0 10px; /* Ajusta el margen para dispositivos pequeños */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    .imagen-pagina {
+        margin-right: 0; /* Elimina el margen derecho */
+        width: 100px; /* Reduce el tamaño de la imagen */
+        align-items: right;
     }
 }

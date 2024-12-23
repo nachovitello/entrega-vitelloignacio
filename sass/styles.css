@@ -10,7 +10,9 @@
 }
 
 .carousel-item img {
-  height: 450px;
+  width: 10px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .slider-container {
@@ -52,32 +54,6 @@
   animation-play-state: paused; /* Pausa la animación al pasar el cursor */
 }
 
-@media screen and (max-width: 768px) {
-  .carousel-item img {
-    height: 200px;
-  }
-  .slider {
-    display: flex;
-    width: 270%; /* Calcula el ancho total del slider según el número de imágenes */
-    animation: scroll 15s linear infinite; /* Desplazamiento continuo */
-    align-items: center;
-  }
-  .slider-container {
-    width: 100%; /* Ajusta el ancho del slider al 80% del ancho de la página */
-    max-width: 100%; /* Tamaño máximo opcional */
-    height: 40px; /* Altura del slider */
-    overflow: hidden; /* Oculta cualquier contenido que desborde del contenedor */
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    margin: 20px 0px;
-  }
-  .slider img {
-    height: 40px;
-    padding: 5px;
-    object-fit: cover;
-    align-items: center;
-  }
-}
 .navegador {
   padding: 5 px;
   background-color: #fff;
@@ -94,7 +70,7 @@
 }
 .navegador ul li a {
   text-decoration: none;
-  color: #ff3131;
+  color: rgb(231, 112, 112);
   display: block;
   padding: 5px;
   font-size: 30px;
@@ -141,14 +117,13 @@
     position: fixed;
     top: 0;
     left: -300px;
-    width: 160px;
+    width: 250px;
     height: 100vh;
     background-color: #fff;
     flex-direction: column;
     align-items: center;
     transition: 0.5s;
     padding-top: 45px;
-    z-index: 99;
   }
   .navegador ul:hover {
     left: 0;
@@ -183,22 +158,9 @@
   align-items: end;
 }
 
-@media screen and (max-width: 768px) {
-  .titulo {
-    display: grid;
-    grid-template-columns: 4fr 1fr; /* Imagen - Texto (ajustable) - Imagen */
-    align-items: center;
-    gap: 20px; /* Espacio entre columnas */
-  }
-  .titulo h2 {
-    font-size: 16px; /* Reduce el tamaño de la fuente */
-    margin: 0 10px; /* Ajusta el margen para dispositivos pequeños */
-    text-align: left; /* Alinea el texto a la izquierda */
-  }
-  .imagen-pagina {
-    margin-right: 0; /* Elimina el margen derecho */
-    width: 100px; /* Reduce el tamaño de la imagen */
-    align-items: right;
+@media (max-width: 489px) {
+  .titulo h1 {
+    font-size: 42px;
   }
 }
 .maps {
@@ -209,8 +171,7 @@
 
 .pie-de-pagina {
   padding: 15px;
-  color: aliceblue;
-  background-color: #ff3131;
+  background-color: rgb(231, 112, 112);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
@@ -255,7 +216,7 @@
 }
 
 .logo-redes i {
-  color: rgb(255, 255, 255);
+  color: black;
 }
 
 @media (max-width: 768px) {
@@ -279,7 +240,6 @@
   font-size: 50px;
   display: grid;
   text-align: center;
-  overflow: hidden;
 }
 
 .productos {
@@ -308,11 +268,6 @@
   gap: 15px;
   text-align: center;
   align-items: center;
-  overflow: hidden;
-}
-
-.etiqueta-productos h2 {
-  font-size: 30px;
 }
 
 .imagen-tarjeta {
@@ -334,7 +289,6 @@
 .enlace-productos {
   background-color: #e01010;
   font-size: 22px;
-  color: aliceblue;
   width: 280px;
   border-radius: 10px;
   padding: 10px;

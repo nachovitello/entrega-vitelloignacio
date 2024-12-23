@@ -5,7 +5,8 @@
 }
 .pie-de-pagina{
     padding: 15px;
-    background-color:rgb(231, 112, 112);
+    color: aliceblue;
+    background-color:#ff3131;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     align-items: center;
@@ -50,7 +51,7 @@
     font-size: 40px;
 }
 .logo-redes i{
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 @media(max-width:768px){
